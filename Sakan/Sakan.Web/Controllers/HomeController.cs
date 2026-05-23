@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Sakan.Web.Models;
 using System.Diagnostics;
@@ -12,6 +13,7 @@ namespace Sakan.Web.Controllers
         {
             _logger = logger;
         }
+        [Authorize] 
 
         public IActionResult Index()
         {
