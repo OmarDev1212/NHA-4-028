@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Sakan.Domain.Contracts;
 using Sakan.Infrastructure.Data;
+using Sakan.Infrastructure.Repositories;
 
 namespace Sakan.Infrastructure
 {
@@ -14,6 +16,9 @@ namespace Sakan.Infrastructure
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")
                 ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found."));
             });
+
+
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             return services;
         }
