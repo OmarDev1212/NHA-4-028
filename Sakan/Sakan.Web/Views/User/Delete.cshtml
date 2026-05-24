@@ -1,0 +1,16 @@
+﻿@model UserViewModel
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>Are you sure to delete</h1>
+
+<partial name="PartialViews/_DetailsDeleteUser"></partial>
+
+
+<div class="mt-4">
+    <form asp-action="ConfirmDelete" asp-route-id="@Model.Id" method="post">
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a asp-action="Index" class="btn btn-outline-dark">Back To list</a>
+    </form>
+</div>
