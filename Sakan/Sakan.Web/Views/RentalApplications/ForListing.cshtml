@@ -1,0 +1,43 @@
+@model IEnumerable<Sakan.Application.DTO.RentalApplicationDto>
+@{
+    ViewData["Title"] = "Listing applications";
+}
+
+<h1>Applications for listing</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Property</th>
+            <th>Period</th>
+            <th>Budget</th>
+            <th>Status</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.PropertyTitle</td>
+            <td>@item.RequestedFrom.ToString("d") – @item.RequestedTo.ToString("d")</td>
+            <td>@item.MonthlyBudget</td>
+            <td>@item.Status</td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                @if (item.Status == nameof(Sakan.Domain.Enums.ApplicationStatus.Submitted))
+                {
+                    <form asp-action="Approve" asp-route-id="@item.Id" method="post" class="d-inline">
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="btn btn-link btn-sm p-0">Approve</button>
+                    </form>
+                    <form asp-action="Reject" asp-route-id="@item.Id" method="post" class="d-inline">
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="btn btn-link btn-sm p-0 text-danger">Reject</button>
+                    </form>
+                }
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

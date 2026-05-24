@@ -2,8 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Sakan.Application;
 using Sakan.Application.DTO;
+using Sakan.Application.Services.PropertyService;
 using Sakan.Domain.Entities;
 using Sakan.Domain.Enums;
 

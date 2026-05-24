@@ -19,13 +19,12 @@ namespace Sakan.Domain.Entities
         public DateTimeOffset? ProcessedAt { get; set; }
         public DateTimeOffset CreatedAt { get; set; } = DateTimeOffset.UtcNow;
 
-
-
         // Navigation
-        public string PayerId { get; set; }
-        public string PayeeId { get; set; }
+        public string PayerId { get; set; } = null!;
+        public string PayeeId { get; set; } = null!;
         public ApplicationUser Payer { get; set; } = null!;
         public ApplicationUser Payee { get; set; } = null!;
-
+        public Guid? RentalApplicationId { get; set; }
+        public RentalApplication? RentalApplication { get; set; }
     }
 }

@@ -1,0 +1,31 @@
+@model IEnumerable<Sakan.Application.DTO.MaintenanceRequestDto>
+@{
+    ViewData["Title"] = "Maintenance";
+}
+
+<h1>Maintenance requests</h1>
+<p><a asp-action="Create" class="btn btn-primary">New request</a></p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Property</th>
+            <th>Title</th>
+            <th>Priority</th>
+            <th>Status</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.PropertyTitle</td>
+            <td>@item.Title</td>
+            <td>@item.Priority</td>
+            <td>@item.Status</td>
+            <td><a asp-action="Details" asp-route-id="@item.Id">Details</a></td>
+        </tr>
+    }
+    </tbody>
+</table>

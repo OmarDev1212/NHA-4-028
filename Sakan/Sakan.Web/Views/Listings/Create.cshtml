@@ -1,0 +1,38 @@
+@model Sakan.Application.DTO.CreatePropertyListingDto
+@{
+    ViewData["Title"] = "Create listing";
+}
+
+<h1>Create listing</h1>
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="mb-3">
+        <label class="form-label">Property</label>
+        <select asp-for="PropertyId" class="form-select" asp-items="ViewBag.PropertyId"></select>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Listing type</label>
+        <select asp-for="ListingType" class="form-select" asp-items="ViewBag.ListingType"></select>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Price" class="form-label"></label>
+        <input asp-for="Price" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Currency" class="form-label"></label>
+        <input asp-for="Currency" class="form-control" maxlength="3" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="AvailableFrom" class="form-label"></label>
+        <input asp-for="AvailableFrom" type="date" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="AvailableTo" class="form-label"></label>
+        <input asp-for="AvailableTo" type="date" class="form-control" />
+    </div>
+    <div class="form-check mb-3">
+        <input asp-for="PublishNow" class="form-check-input" />
+        <label asp-for="PublishNow" class="form-check-label">Publish immediately</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>

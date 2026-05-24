@@ -1,0 +1,76 @@
+@model Sakan.Application.DTO.OwnershipTransferDto
+@using Sakan.Application.DTO
+@using Sakan.Domain.Enums
+@{
+    ViewData["Title"] = "Transfer workflow";
+    var documents = ViewBag.Documents as IEnumerable<DocumentDto> ?? Enumerable.Empty<DocumentDto>();
+}
+
+<h1>@Model.PropertyTitle</h1>
+<p><strong>Status:</strong> @Model.Status</p>
+<p><strong>Agreed price:</strong> @Model.AgreedPrice</p>
+@if (!string.IsNullOrEmpty(Model.NotaryNotes))
+{
+    <p><strong>Notary notes:</strong> @Model.NotaryNotes</p>
+}
+
+<h3>Documents</h3>
+<ul>
+@foreach (var doc in documents)
+{
+    <li>@doc.DocumentType — @doc.FileName @(doc.IsVerified ? "(verified)" : "")</li>
+}
+</ul>
+
+<form asp-action="UploadDocument" asp-route-id="@Model.Id" method="post" enctype="multipart/form-data" class="mb-3">
+    @Html.AntiForgeryToken()
+    <div class="row g-2">
+        <div class="col-md-4">
+            <select name="documentType" class="form-select" asp-items="Html.GetEnumSelectList<DocumentType>()"></select>
+        </div>
+        <div class="col-md-4">
+            <input type="file" name="file" class="form-control" required />
+        </div>
+        <div class="col-md-4">
+            <button type="submit" class="btn btn-outline-primary">Upload</button>
+        </div>
+    </div>
+</form>
+
+<div class="d-flex flex-wrap gap-2">
+    <form asp-action="SubmitDocuments" asp-route-id="@Model.Id" method="post">
+        @Html.AntiForgeryToken()
+        <button type="submit" class="btn btn-secondary">Submit documents</button>
+    </form>
+    <form asp-action="CreateEscrow" asp-route-id="@Model.Id" method="post">
+        @Html.AntiForgeryToken()
+        <button type="submit" class="btn btn-warning">Fund escrow (buyer)</button>
+    </form>
+    <form asp-action="MarkSigned" asp-route-id="@Model.Id" method="post">
+        @Html.AntiForgeryToken()
+        <button type="submit" class="btn btn-info">Mark signed</button>
+    </form>
+    <form asp-action="MarkRegistered" asp-route-id="@Model.Id" method="post">
+        @Html.AntiForgeryToken()
+        <button type="submit" class="btn btn-info">Mark registered</button>
+    </form>
+    <form asp-action="Complete" asp-route-id="@Model.Id" method="post">
+        @Html.AntiForgeryToken()
+        <button type="submit" class="btn btn-success">Complete transfer</button>
+    </form>
+</div>
+
+<h3 class="mt-4">Legal review</h3>
+<form asp-action="LegalReview" asp-route-id="@Model.Id" method="post">
+    @Html.AntiForgeryToken()
+    <div class="mb-2">
+        <textarea name="NotaryNotes" class="form-control" placeholder="Notary notes"></textarea>
+    </div>
+    <div class="form-check mb-2">
+        <input type="checkbox" name="Approved" value="true" class="form-check-input" checked id="approved" />
+        <label class="form-check-label" for="approved">Approved</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit legal review</button>
+</form>
+
+<a asp-action="Index" class="btn btn-link mt-3">Back</a>

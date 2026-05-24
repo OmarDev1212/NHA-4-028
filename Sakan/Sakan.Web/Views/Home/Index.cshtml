@@ -1,18 +1,75 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
     var intent = ViewData["UserIntent"] as string;
-    Layout = "_Layout";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    @if (TempData["WelcomeMessage"] is string welcomeMessage)
-    {
-        <p class="alert alert-success">@welcomeMessage</p>
-    }
-    @if (!string.IsNullOrEmpty(intent))
-    {
-        <p class="text-muted">Your preference: @intent.Replace("BrowseTo", "Browse to ").Replace("ListFor", "List for ")</p>
-    }
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+@section Hero {
+    <div class="hero">
+        <div class="hero-slide">
+            <div class="img overlay" style="background-image: url('/images/hero_bg_1.jpg')"></div>
+            <div class="img overlay" style="background-image: url('/images/hero_bg_2.jpg')"></div>
+            <div class="img overlay" style="background-image: url('/images/hero_bg_3.jpg')"></div>
+        </div>
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-9 text-center">
+                    <h1 class="heading" data-aos="fade-up">Find your next home with Sakan</h1>
+                    <p class="text-white mb-4" data-aos="fade-up" data-aos-delay="100">
+                        Browse listings, book virtual viewings, apply to rent, and complete ownership transfers — all in one place.
+                    </p>
+                    <form asp-controller="Listings" asp-action="Index" method="get"
+                          class="narrow-w form-search d-flex align-items-stretch mb-3"
+                          data-aos="fade-up" data-aos-delay="200">
+                        <input type="text" name="city" class="form-control px-4" placeholder="City e.g. Cairo, Dubai" />
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@if (!string.IsNullOrEmpty(intent))
+{
+    <p class="text-muted mb-4">Your preference: @intent.Replace("BrowseTo", "Browse to ").Replace("ListFor", "List for ")</p>
+}
+
+<div class="row g-4">
+    <div class="col-md-4">
+        <div class="box-feature h-100">
+            <span class="flaticon-house"></span>
+            <h3 class="mb-3">Browse listings</h3>
+            <p class="text-black-50">Search active properties for rent or sale by city and price.</p>
+            <p><a asp-controller="Listings" asp-action="Index" class="learn-more">Explore listings</a></p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="box-feature h-100">
+            <span class="flaticon-building"></span>
+            <h3 class="mb-3">Virtual viewings</h3>
+            <p class="text-black-50">Request a viewing appointment and join via secure video link.</p>
+            @if (User.Identity?.IsAuthenticated == true)
+            {
+                <p><a asp-controller="ViewingAppointments" asp-action="Index" class="learn-more">My viewings</a></p>
+            }
+            else
+            {
+                <p><a asp-controller="Account" asp-action="Register" class="learn-more">Register to book</a></p>
+            }
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="box-feature h-100">
+            <span class="flaticon-house-3"></span>
+            <h3 class="mb-3">Rent &amp; transfer</h3>
+            <p class="text-black-50">Submit rental applications or run a digital ownership transfer with escrow.</p>
+            @if (User.Identity?.IsAuthenticated == true)
+            {
+                <p>
+                    <a asp-controller="RentalApplications" asp-action="MyApplications" class="learn-more me-2">Rentals</a>
+                    <a asp-controller="OwnershipTransfers" asp-action="Index" class="learn-more">Transfers</a>
+                </p>
+            }
+        </div>
+    </div>
 </div>

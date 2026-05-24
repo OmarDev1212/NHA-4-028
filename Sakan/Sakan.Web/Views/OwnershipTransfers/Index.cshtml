@@ -1,0 +1,31 @@
+@model IEnumerable<Sakan.Application.DTO.OwnershipTransferDto>
+@{
+    ViewData["Title"] = "Ownership transfers";
+}
+
+<h1>Ownership transfers</h1>
+<p><a asp-action="Create" class="btn btn-primary">Initiate transfer</a></p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Property</th>
+            <th>Price</th>
+            <th>Status</th>
+            <th>Initiated</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.PropertyTitle</td>
+            <td>@item.AgreedPrice</td>
+            <td>@item.Status</td>
+            <td>@item.InitiatedAt.ToString("d")</td>
+            <td><a asp-action="Details" asp-route-id="@item.Id">Workflow</a></td>
+        </tr>
+    }
+    </tbody>
+</table>

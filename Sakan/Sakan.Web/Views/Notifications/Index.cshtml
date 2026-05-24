@@ -1,0 +1,29 @@
+@model IEnumerable<Sakan.Application.DTO.NotificationDto>
+@{
+    ViewData["Title"] = "Notifications";
+    var unreadOnly = (bool)(ViewBag.UnreadOnly ?? false);
+}
+
+<h1>Notifications @if (ViewBag.UnreadCount > 0) { <span class="badge bg-danger">@ViewBag.UnreadCount</span> }</h1>
+<p>
+    <a asp-action="Index" asp-route-unreadOnly="false">All</a> |
+    <a asp-action="Index" asp-route-unreadOnly="true">Unread only</a>
+</p>
+
+<ul class="list-group">
+@foreach (var item in Model)
+{
+    <li class="list-group-item @(item.IsRead ? "" : "list-group-item-warning")">
+        <strong>@item.Title</strong>
+        <p class="mb-1">@item.Body</p>
+        <small class="text-muted">@item.CreatedAt.ToString("g")</small>
+        @if (!item.IsRead)
+        {
+            <form asp-action="MarkRead" asp-route-id="@item.Id" method="post" class="d-inline float-end">
+                @Html.AntiForgeryToken()
+                <button type="submit" class="btn btn-sm btn-outline-primary">Mark read</button>
+            </form>
+        }
+    </li>
+}
+</ul>

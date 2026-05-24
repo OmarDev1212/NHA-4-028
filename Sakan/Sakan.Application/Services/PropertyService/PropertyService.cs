@@ -3,9 +3,9 @@ using Sakan.Application.DTO;
 using Sakan.Domain.Contracts;
 using Sakan.Domain.Entities;
 
-namespace Sakan.Application.Services;
+namespace Sakan.Application.Services.PropertyService;
 
-public class PropertyService(IUnitOfWork unitOfWork, IAttachmentService attachmentService) :    IPropertyService
+public class PropertyService(IUnitOfWork unitOfWork, IAttachmentService attachmentService) : IPropertyService
 {
     private const string PhotoFolder = "Properties";
 

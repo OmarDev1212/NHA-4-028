@@ -1,0 +1,35 @@
+@model Sakan.Application.DTO.ViewingAppointmentDto
+@{
+    ViewData["Title"] = "Viewing appointment";
+}
+
+<h1>@Model.PropertyTitle</h1>
+<p><strong>Status:</strong> @Model.Status</p>
+<p><strong>When:</strong> @Model.ScheduledAt.ToString("f") (@Model.DurationMinutes min)</p>
+<p><strong>Meeting:</strong> @Model.MeetingType</p>
+@if (!string.IsNullOrEmpty(Model.VirtualMeetingUrl))
+{
+    <p><a href="@Model.VirtualMeetingUrl" target="_blank">Join virtual meeting</a></p>
+}
+@if (!string.IsNullOrEmpty(Model.Notes))
+{
+    <p><strong>Notes:</strong> @Model.Notes</p>
+}
+
+@if (Model.Status == nameof(Sakan.Domain.Enums.AppointmentStatus.Pending))
+{
+    <a asp-action="Confirm" asp-route-id="@Model.Id" class="btn btn-primary">Confirm (agent)</a>
+}
+@if (Model.Status == nameof(Sakan.Domain.Enums.AppointmentStatus.Confirmed))
+{
+    <form asp-action="Complete" asp-route-id="@Model.Id" method="post" class="d-inline">
+        @Html.AntiForgeryToken()
+        <button type="submit" class="btn btn-success">Mark completed</button>
+    </form>
+}
+<form asp-action="Cancel" asp-route-id="@Model.Id" method="post" class="d-inline">
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-outline-danger">Cancel</button>
+</form>
+
+<a asp-action="Index" class="btn btn-link">Back</a>

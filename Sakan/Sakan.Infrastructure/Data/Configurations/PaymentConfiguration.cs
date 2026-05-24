@@ -41,6 +41,11 @@ namespace Sakan.Infrastructure.Data.Configurations
                 .HasForeignKey(d => d.PayerId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Pay_Payer");
+
+            entity.HasOne(d => d.RentalApplication).WithMany(p => p.Payments)
+                .HasForeignKey(d => d.RentalApplicationId)
+                .HasConstraintName("FK_Payments_RentalApplications_RentalApplicationId");
+
             entity.ToTable("Payments");
 
         }

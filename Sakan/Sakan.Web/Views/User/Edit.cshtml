@@ -1,9 +1,9 @@
-﻿@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Identity
 @model UserViewModel
 @inject RoleManager<IdentityRole> _roleManager;
 @{
     ViewData["Title"] = "Edit";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "_MainLayout";
     var roles = _roleManager.Roles.ToList();
 }
 

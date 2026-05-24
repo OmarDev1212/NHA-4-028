@@ -1,0 +1,22 @@
+@model Sakan.Application.DTO.CreateOwnershipTransferDto
+@{
+    ViewData["Title"] = "Initiate transfer";
+}
+
+<h1>Initiate ownership transfer</h1>
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="mb-3">
+        <label class="form-label">Property</label>
+        <select asp-for="PropertyId" class="form-select" asp-items="ViewBag.PropertyId"></select>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Buyer</label>
+        <select asp-for="ToOwnerId" class="form-select" asp-items="ViewBag.ToOwnerId"></select>
+    </div>
+    <div class="mb-3">
+        <label asp-for="AgreedPrice" class="form-label"></label>
+        <input asp-for="AgreedPrice" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Initiate</button>
+</form>

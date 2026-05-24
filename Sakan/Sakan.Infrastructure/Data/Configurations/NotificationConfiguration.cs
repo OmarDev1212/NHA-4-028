@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Sakan.Models;
+using Sakan.Domain.Entities;
 
 namespace Sakan.Infrastructure.Data.Configurations
 {

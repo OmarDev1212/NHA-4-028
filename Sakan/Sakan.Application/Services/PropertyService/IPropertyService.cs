@@ -1,6 +1,6 @@
 ﻿using Sakan.Application.DTO;
 
-namespace Sakan.Application
+namespace Sakan.Application.Services.PropertyService
 {
     public interface IPropertyService
     {

@@ -1,0 +1,27 @@
+@model Sakan.Application.DTO.CreateRentalApplicationDto
+@{
+    ViewData["Title"] = "Apply to rent";
+}
+
+<h1>Apply to rent</h1>
+<form asp-action="Create" method="post">
+    <input type="hidden" asp-for="ListingId" />
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="mb-3">
+        <label asp-for="RequestedFrom" class="form-label"></label>
+        <input asp-for="RequestedFrom" type="date" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="RequestedTo" class="form-label"></label>
+        <input asp-for="RequestedTo" type="date" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="MonthlyBudget" class="form-label"></label>
+        <input asp-for="MonthlyBudget" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Message" class="form-label"></label>
+        <textarea asp-for="Message" class="form-control"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit application</button>
+</form>
