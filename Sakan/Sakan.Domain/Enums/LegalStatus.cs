@@ -9,7 +9,7 @@ namespace Sakan.Domain.Enums
 
     public enum LegalStatus
     {
-        Clear,
+        Clear = 1,
         Disputed,
         Mortgaged,
         Foreclosed,

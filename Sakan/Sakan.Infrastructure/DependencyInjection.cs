@@ -2,8 +2,8 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Sakan.Domain.Contracts;
-using Sakan.Domain.Entities;
 using Sakan.Infrastructure.Data;
+using Sakan.Infrastructure.Identity;
 using Sakan.Infrastructure.Repositories;
 
 namespace Sakan.Infrastructure
@@ -20,9 +20,7 @@ namespace Sakan.Infrastructure
 
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-
-            
-
+            services.AddScoped<UserRoleAssignmentService>();
 
             return services;
         }

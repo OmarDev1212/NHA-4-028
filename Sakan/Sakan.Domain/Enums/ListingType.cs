@@ -8,6 +8,6 @@ namespace Sakan.Domain.Enums
 {
     public  enum ListingType
     {
-        ForSale , ForRent , ShortTermRent , Auction
+        ForSale = 1 , ForRent , ShortTermRent , Auction
     }
 }

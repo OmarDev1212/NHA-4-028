@@ -2,7 +2,7 @@
 {
     public enum MeetingType
     {
-        InPerson,
+        InPerson = 1,
         Virtual
     }
 }

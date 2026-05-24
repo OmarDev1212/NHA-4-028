@@ -10,10 +10,12 @@ namespace Sakan.Infrastructure.Data.Configurations
         {
             entity.HasIndex(e => new { e.RecipientId, e.IsRead, e.CreatedAt }, "IX_Notifications_Inbox").IsDescending(false, false, true);
 
-            entity.Property(e => e.Id).HasDefaultValueSql("(newsequentialid())");
+            entity.Property(e => e.Id)
+                .HasDefaultValueSql("NEWID()");
+
             entity.Property(e => e.Body)
-                .IsRequired()
-                .HasMaxLength(2000);
+                            .IsRequired()
+                            .HasMaxLength(2000);
             entity.Property(e => e.Channel)
                 .IsRequired()
                 .HasMaxLength(10)

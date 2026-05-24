@@ -1,8 +1,17 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    var intent = ViewData["UserIntent"] as string;
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
+    @if (TempData["WelcomeMessage"] is string welcomeMessage)
+    {
+        <p class="alert alert-success">@welcomeMessage</p>
+    }
+    @if (!string.IsNullOrEmpty(intent))
+    {
+        <p class="text-muted">Your preference: @intent.Replace("BrowseTo", "Browse to ").Replace("ListFor", "List for ")</p>
+    }
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>

@@ -8,7 +8,7 @@ namespace Sakan.Domain.Enums
 {
     public enum PropertyType
     {
-        Apartment,
+        Apartment=1,
         House,
         Villa,
         Commercial,

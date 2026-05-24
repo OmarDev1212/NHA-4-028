@@ -1,0 +1,30 @@
+[
+  {
+    "id": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa01",
+    "scheduledAt": "2025-05-25T10:00:00+00:00",
+    "durationMinutes": 45,
+    "status": 2,
+    "meetingType": 1,
+    "virtualMeetingUrl": null,
+    "notes": "Please call upon arrival at the gate.",
+    "createdAt": "2025-05-10T14:00:00+00:00",
+    "listingId": "22222222-2222-2222-2222-222222222201",
+    "requestedById": "aaaaaaaa-bbbb-bbbb-bbbb-bbbbbbbbbbb3",
+    "agentId": "aaaaaaaa-bbbb-bbbb-bbbb-bbbbbbbbbbb2",
+    "isDeleted": false
+  },
+  {
+    "id": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa02",
+    "scheduledAt": "2025-05-28T15:00:00+00:00",
+    "durationMinutes": 30,
+    "status": 1,
+    "meetingType": 2,
+    "virtualMeetingUrl": "https://meet.sakan.local/viewing-villa-new-cairo",
+    "notes": null,
+    "createdAt": "2025-05-15T09:00:00+00:00",
+    "listingId": "22222222-2222-2222-2222-222222222202",
+    "requestedById": "aaaaaaaa-bbbb-bbbb-bbbb-bbbbbbbbbbb4",
+    "agentId": "aaaaaaaa-bbbb-bbbb-bbbb-bbbbbbbbbbb2",
+    "isDeleted": false
+  }
+]

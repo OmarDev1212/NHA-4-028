@@ -10,7 +10,7 @@ namespace Sakan.Infrastructure.Data.Configurations
         {
             entity.HasIndex(e => new { e.ListingId, e.Status, e.ScheduledAt }, "IX_VA_ListingStatus");
 
-            entity.Property(e => e.Id).HasDefaultValueSql("(newsequentialid())");
+            entity.Property(e => e.Id).HasDefaultValueSql("NEWID()");
             entity.Property(e => e.CreatedAt).HasDefaultValueSql("(sysdatetimeoffset())");
             entity.Property(e => e.DurationMinutes).HasDefaultValue(30);
             entity.Property(e => e.MeetingType)

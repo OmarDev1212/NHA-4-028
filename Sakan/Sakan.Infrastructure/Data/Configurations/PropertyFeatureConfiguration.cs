@@ -10,7 +10,7 @@ namespace Sakan.Infrastructure.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<PropertyFeature> entity)
         {
-            entity.Property(e => e.Id).HasDefaultValueSql("(newsequentialid())");
+            entity.Property(e => e.Id).HasDefaultValueSql("NEWID()");
             entity.Property(e => e.Feature)
                 .IsRequired()
                 .HasMaxLength(100);

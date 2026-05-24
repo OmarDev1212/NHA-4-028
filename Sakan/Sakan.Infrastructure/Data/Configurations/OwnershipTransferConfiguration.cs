@@ -8,7 +8,7 @@ namespace Sakan.Infrastructure.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<OwnershipTransfer> entity)
         {
-            entity.Property(e => e.Id).HasDefaultValueSql("(newsequentialid())");
+            entity.Property(e => e.Id).HasDefaultValueSql("NEWID()");
             entity.Property(e => e.AgreedPrice).HasColumnType("decimal(18, 2)");
             entity.Property(e => e.CancellationReason).HasMaxLength(1000);
             entity.Property(e => e.InitiatedAt).HasDefaultValueSql("(sysdatetimeoffset())");

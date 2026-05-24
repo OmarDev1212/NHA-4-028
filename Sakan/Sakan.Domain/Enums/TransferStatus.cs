@@ -2,7 +2,7 @@
 {
     public enum TransferStatus
     {
-        Initiated,
+        Initiated = 1,
         DocumentsUploaded,
         LegalReview,
         PaymentHeld,

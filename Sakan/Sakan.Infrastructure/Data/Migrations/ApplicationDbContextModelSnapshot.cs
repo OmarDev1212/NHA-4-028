@@ -202,6 +202,14 @@ namespace Sakan.Infrastructure.Data.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
+                    b.Property<bool>("OnboardingCompleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.Property<int?>("OnboardingIntent")
+                        .HasColumnType("int");
+
                     b.Property<string>("PasswordHash")
                         .HasColumnType("nvarchar(max)");
 
@@ -301,7 +309,7 @@ namespace Sakan.Infrastructure.Data.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("(newsequentialid())");
+                        .HasDefaultValueSql("NEWID()");
 
                     b.Property<decimal?>("ActualCostUSD")
                         .HasColumnType("decimal(18, 2)")
@@ -376,7 +384,7 @@ namespace Sakan.Infrastructure.Data.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("(newsequentialid())");
+                        .HasDefaultValueSql("NEWID()");
 
                     b.Property<DateTimeOffset>("AcquiredAt")
                         .ValueGeneratedOnAdd()
@@ -429,7 +437,7 @@ namespace Sakan.Infrastructure.Data.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("(newsequentialid())");
+                        .HasDefaultValueSql("NEWID()");
 
                     b.Property<string>("AgentId")
                         .HasColumnType("nvarchar(450)");
@@ -498,7 +506,7 @@ namespace Sakan.Infrastructure.Data.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("(newsequentialid())");
+                        .HasDefaultValueSql("NEWID()");
 
                     b.Property<decimal>("Amount")
                         .HasColumnType("decimal(18, 2)");
@@ -629,7 +637,7 @@ namespace Sakan.Infrastructure.Data.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("(newsequentialid())");
+                        .HasDefaultValueSql("NEWID()");
 
                     b.Property<string>("Feature")
                         .IsRequired()
@@ -654,7 +662,7 @@ namespace Sakan.Infrastructure.Data.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("(newsequentialid())");
+                        .HasDefaultValueSql("NEWID()");
 
                     b.Property<DateOnly>("AvailableFrom")
                         .HasColumnType("date");
@@ -723,7 +731,7 @@ namespace Sakan.Infrastructure.Data.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("(newsequentialid())");
+                        .HasDefaultValueSql("NEWID()");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -751,7 +759,7 @@ namespace Sakan.Infrastructure.Data.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("(newsequentialid())");
+                        .HasDefaultValueSql("NEWID()");
 
                     b.Property<string>("ApplicantId")
                         .IsRequired()
@@ -803,7 +811,7 @@ namespace Sakan.Infrastructure.Data.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("(newsequentialid())");
+                        .HasDefaultValueSql("NEWID()");
 
                     b.Property<string>("AgentId")
                         .HasColumnType("nvarchar(450)");
@@ -864,7 +872,7 @@ namespace Sakan.Infrastructure.Data.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("(newsequentialid())");
+                        .HasDefaultValueSql("NEWID()");
 
                     b.Property<string>("Body")
                         .IsRequired()

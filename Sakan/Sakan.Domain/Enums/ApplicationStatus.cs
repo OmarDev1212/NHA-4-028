@@ -2,7 +2,7 @@
 {
     public enum ApplicationStatus
     {
-        Submitted,
+        Submitted = 1,
         UnderReview,
         Approved,
         Rejected,

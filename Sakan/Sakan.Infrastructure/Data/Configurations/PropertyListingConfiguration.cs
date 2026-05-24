@@ -15,7 +15,7 @@ namespace Sakan.Infrastructure.Data.Configurations
             entity.HasIndex(e => e.PropertyId, "UIX_Listings_OneActivePerProperty")
                 .IsUnique();
 
-            entity.Property(e => e.Id).HasDefaultValueSql("(newsequentialid())");
+            entity.Property(e => e.Id).HasDefaultValueSql("NEWID()");
             entity.Property(e => e.CreatedAt).HasDefaultValueSql("(sysdatetimeoffset())");
             entity.Property(e => e.Currency)
                 .IsRequired()

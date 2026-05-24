@@ -1,8 +1,8 @@
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Sakan.Domain.Entities;
 using Sakan.Infrastructure;
 using Sakan.Infrastructure.Data;
+using Sakan.Infrastructure.Data.Seeding;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,11 +22,28 @@ builder.Services.AddAuthentication(options =>
     options.AccessDeniedPath = "/Error/";
 })
 .AddIdentityCookies();
-builder.Services.AddIdentityCore<ApplicationUser>()
-                .AddEntityFrameworkStores<ApplicationDbContext>()
-                .AddSignInManager()
-                .AddDefaultTokenProviders();
+builder.Services.AddIdentityCore<ApplicationUser>(options =>
+{
+    options.Password.RequireDigit = true;
+    options.Password.RequireLowercase = true;
+    options.Password.RequireUppercase = false;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequiredLength = 6;
+})
+.AddRoles<IdentityRole>()
+.AddEntityFrameworkStores<ApplicationDbContext>()
+.AddSignInManager()
+.AddRoleManager<RoleManager<IdentityRole>>()
+.AddDefaultTokenProviders();
+
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    await IdentityDataSeeder.SeedAsync(scope.ServiceProvider);
+    await DataSeeder.SeedAsync(dbContext);
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

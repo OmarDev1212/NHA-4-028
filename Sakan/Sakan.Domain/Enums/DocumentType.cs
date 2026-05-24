@@ -2,7 +2,7 @@
 {
     public enum DocumentType
     {
-        TitleDeed,
+        TitleDeed = 1,
         NationalId,
         RentalContract,
         InspectionReport,

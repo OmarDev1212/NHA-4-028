@@ -10,7 +10,7 @@ namespace Sakan.Infrastructure.Data.Configurations
         {
             entity.HasIndex(e => new { e.ListingId, e.Status, e.RequestedFrom, e.RequestedTo }, "IX_RA_ListingDates");
 
-            entity.Property(e => e.Id).HasDefaultValueSql("(newsequentialid())");
+            entity.Property(e => e.Id).HasDefaultValueSql("NEWID()");
             entity.Property(e => e.Message).HasMaxLength(1000);
             entity.Property(e => e.MonthlyBudget).HasColumnType("decimal(18, 2)");
             entity.Property(e => e.Status)

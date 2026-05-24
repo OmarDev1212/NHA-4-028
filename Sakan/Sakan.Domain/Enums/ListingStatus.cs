@@ -2,7 +2,7 @@
 {
     public enum ListingStatus
     {
-        Draft,
+        Draft = 1,
         Active,
         UnderOffer,
         Rented,

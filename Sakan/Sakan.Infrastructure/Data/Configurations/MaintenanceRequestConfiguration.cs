@@ -12,7 +12,8 @@ namespace Sakan.Infrastructure.Data.Configurations
         {
             entity.HasIndex(e => new { e.Status, e.RequestedAt }, "IX_MR_StatusRequested");
 
-            entity.Property(e => e.Id).HasDefaultValueSql("(newsequentialid())");
+            entity.Property(e => e.Id)
+     .HasDefaultValueSql("NEWID()");
             entity.Property(e => e.ActualCostUSD)
                 .HasColumnType("decimal(18, 2)")
                 .HasColumnName("ActualCostUSD");

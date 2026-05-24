@@ -1,0 +1,50 @@
+@model OnboardingViewModel
+@using Sakan.Domain.Enums
+@{
+    ViewData["Title"] = "Welcome";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+<div class="main-agileinfo">
+    <div class="agileits-top">
+        <h2 style="color: #fff; margin-bottom: 1rem;">What would you like to do first?</h2>
+        <form asp-action="Onboarding" method="post" asp-controller="Account">
+            <div asp-validation-summary="ModelOnly"></div>
+
+            <div class="wthree-text" style="text-align: left; margin-bottom: 1rem;">
+                <label class="anim" style="display: block; margin-bottom: 0.5rem;">
+                    <input type="radio" asp-for="Intent" value="@UserIntent.BrowseToBuy" required />
+                    <span>Browse properties to buy</span>
+                </label>
+                <label class="anim" style="display: block; margin-bottom: 0.5rem;">
+                    <input type="radio" asp-for="Intent" value="@UserIntent.BrowseToRent" />
+                    <span>Browse properties to rent</span>
+                </label>
+                <label class="anim" style="display: block; margin-bottom: 0.5rem;">
+                    <input type="radio" asp-for="Intent" value="@UserIntent.ListForSale" />
+                    <span>List a property for sale</span>
+                </label>
+                <label class="anim" style="display: block; margin-bottom: 0.5rem;">
+                    <input type="radio" asp-for="Intent" value="@UserIntent.ListForRent" />
+                    <span>List a property for rent</span>
+                </label>
+            </div>
+            <span asp-validation-for="Intent"></span>
+            <br />
+
+            <input type="submit" value="CONTINUE">
+        </form>
+        <form asp-action="Onboarding" method="post" style="margin-top: 1rem;">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="skip" value="true" />
+            <button type="submit" style="background: transparent; border: none; color: #fff; text-decoration: underline; cursor: pointer;">
+                Skip for now
+            </button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

@@ -14,7 +14,7 @@ namespace Sakan.Infrastructure.Data.Configurations
                 .IsUnique()
                 .HasFilter("([IsActive]=(1))");
 
-            entity.Property(e => e.Id).HasDefaultValueSql("(newsequentialid())");
+            entity.Property(e => e.Id).HasDefaultValueSql("NEWID()");
             entity.Property(e => e.AcquiredAt).HasDefaultValueSql("(sysdatetimeoffset())");
             entity.Property(e => e.AcquisitionMethod)
                 .IsRequired()

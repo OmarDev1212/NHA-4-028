@@ -10,7 +10,7 @@ namespace Sakan.Infrastructure.Data.Configurations
         {
             entity.HasIndex(e => new { e.ReferenceType, e.ReferenceId, e.Status }, "IX_Payments_Reference");
 
-            entity.Property(e => e.Id).HasDefaultValueSql("(newsequentialid())");
+            entity.Property(e => e.Id).HasDefaultValueSql("NEWID()");
             entity.Property(e => e.Amount).HasColumnType("decimal(18, 2)");
             entity.Property(e => e.CreatedAt).HasDefaultValueSql("(sysdatetimeoffset())");
             entity.Property(e => e.Currency)

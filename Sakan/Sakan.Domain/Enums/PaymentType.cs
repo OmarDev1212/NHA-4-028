@@ -2,7 +2,7 @@
 {
     public enum PaymentType
     {
-        RentPayment,
+        RentPayment=1,
         SecurityDeposit,
         PurchaseDeposit,
         Escrow,

@@ -2,7 +2,7 @@
 {
     public enum MaintenanceCategory
     {
-        Plumbing,
+        Plumbing = 1,
         Electrical,
         Structural,
         Cleaning,

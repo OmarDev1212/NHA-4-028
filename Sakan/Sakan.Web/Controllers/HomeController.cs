@@ -13,10 +13,10 @@ namespace Sakan.Web.Controllers
         {
             _logger = logger;
         }
-        [Authorize] 
-
-        public IActionResult Index()
+        [Authorize]
+        public IActionResult Index(string? intent)
         {
+            ViewData["UserIntent"] = intent;
             return View();
         }
 

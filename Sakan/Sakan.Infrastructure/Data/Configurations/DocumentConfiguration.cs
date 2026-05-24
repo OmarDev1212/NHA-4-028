@@ -8,6 +8,8 @@ namespace Sakan.Infrastructure.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Document> entity)
         {
+            entity.Property(e => e.Id)
+    .HasDefaultValueSql("NEWID()");
             entity.Property(e => e.Id).HasDefaultValueSql("(newsequentialid())");
             entity.Property(e => e.DocumentType)
                 .IsRequired()

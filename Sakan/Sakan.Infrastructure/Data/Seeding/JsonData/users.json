@@ -1,0 +1,42 @@
+[
+  {
+    "id": "aaaaaaaa-bbbb-bbbb-bbbb-bbbbbbbbbbb1",
+    "userName": "landlord@sakan.local",
+    "email": "landlord@sakan.local",
+    "firstName": "Layla",
+    "lastName": "Hassan",
+    "avatarUrl": null,
+    "onboardingIntent": 4,
+    "onboardingCompleted": true
+  },
+  {
+    "id": "aaaaaaaa-bbbb-bbbb-bbbb-bbbbbbbbbbb2",
+    "userName": "agent@sakan.local",
+    "email": "agent@sakan.local",
+    "firstName": "Omar",
+    "lastName": "Farouk",
+    "avatarUrl": null,
+    "onboardingIntent": 1,
+    "onboardingCompleted": true
+  },
+  {
+    "id": "aaaaaaaa-bbbb-bbbb-bbbb-bbbbbbbbbbb3",
+    "userName": "renter@sakan.local",
+    "email": "renter@sakan.local",
+    "firstName": "Sara",
+    "lastName": "Mahmoud",
+    "avatarUrl": null,
+    "onboardingIntent": 2,
+    "onboardingCompleted": true
+  },
+  {
+    "id": "aaaaaaaa-bbbb-bbbb-bbbb-bbbbbbbbbbb4",
+    "userName": "buyer@sakan.local",
+    "email": "buyer@sakan.local",
+    "firstName": "Khalid",
+    "lastName": "Nasser",
+    "avatarUrl": null,
+    "onboardingIntent": 1,
+    "onboardingCompleted": true
+  }
+]

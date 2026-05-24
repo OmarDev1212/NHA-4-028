@@ -1,0 +1,23 @@
+[
+  {
+    "id": "44444444-4444-4444-4444-444444444401",
+    "propertyId": "11111111-1111-1111-1111-111111111101",
+    "photoUrl": "/images/properties/apt-nasr-city-living-room.jpg",
+    "sortOrder": 1,
+    "isDeleted": false
+  },
+  {
+    "id": "44444444-4444-4444-4444-444444444402",
+    "propertyId": "11111111-1111-1111-1111-111111111101",
+    "photoUrl": "/images/properties/apt-nasr-city-bedroom.jpg",
+    "sortOrder": 2,
+    "isDeleted": false
+  },
+  {
+    "id": "44444444-4444-4444-4444-444444444403",
+    "propertyId": "11111111-1111-1111-1111-111111111102",
+    "photoUrl": "/images/properties/villa-new-cairo-exterior.jpg",
+    "sortOrder": 1,
+    "isDeleted": false
+  }
+]

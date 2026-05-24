@@ -2,7 +2,7 @@
 {
     public enum AcquisitionMethod
     {
-        Purchase,
+        Purchase=1,
         Inheritance,
         Gift,
         Auction,
