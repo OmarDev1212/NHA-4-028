@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Identity;
+using Sakan.Application;
 using Sakan.Domain.Entities;
 using Sakan.Infrastructure;
 using Sakan.Infrastructure.Data;
@@ -9,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddInfrastructureService(builder.Configuration);
+builder.Services.AddApplicationService();
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultScheme = IdentityConstants.ApplicationScheme;

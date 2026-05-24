@@ -14,6 +14,7 @@ namespace Sakan.Application
         public static IServiceCollection AddApplicationService(this IServiceCollection services)
         {
             services.AddScoped<IAttachmentService, AttachmentService>();
+            services.AddScoped<IPropertyService, PropertyService>();
             return services;
         }
     }

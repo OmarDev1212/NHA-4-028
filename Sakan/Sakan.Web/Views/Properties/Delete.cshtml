@@ -1,0 +1,33 @@
+﻿@model Sakan.Application.DTO.PropertyDto
+
+@{
+    ViewData["Title"] = "Delete Property";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this property?</h3>
+
+<div>
+    <h4>@Model.Title</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Type</dt>
+        <dd class="col-sm-10">@Model.PropertyType</dd>
+
+        <dt class="col-sm-2">Address</dt>
+        <dd class="col-sm-10">@Model.Street, @Model.City, @Model.Country</dd>
+
+        <dt class="col-sm-2">Area (m²)</dt>
+        <dd class="col-sm-10">@Model.AreaSqm</dd>
+
+        <dt class="col-sm-2">Owner</dt>
+        <dd class="col-sm-10">@Model.CurrentOwnerId</dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>

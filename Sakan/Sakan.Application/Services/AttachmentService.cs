@@ -17,7 +17,7 @@ namespace Sakan.Application.Services
             //2.Check Size
             if (file.Length > MaxSize) return null;
             //3.Get Located Folder Path
-            var folderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Files", folderName);
+            var folderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Uploads", folderName);
             //4.Make Attachment Name Unique-- GUID
             var fileName = $"{Guid.NewGuid()}_{file.FileName}";
             //5.Get File Path

@@ -11,11 +11,17 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="9.0.12" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Sakan.Application\Sakan.Application.csproj" />
     <ProjectReference Include="..\Sakan.Infrastructure\Sakan.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Uploads\Documents\" />
+    <Folder Include="wwwroot\Uploads\Properties\" />
   </ItemGroup>
 
 </Project>

@@ -5,26 +5,26 @@ namespace Sakan.Domain.Entities
 {
     public class Property:BaseEntity<Guid>
     {
-        public string Title { get; set; } = default!;
+            public string Title { get; set; } = default!;
 
-        public PropertyType PropertyType { get; set; }
+            public PropertyType PropertyType { get; set; }
 
-        public Address Address { get; set; } = default!;
+            public Address Address { get; set; } = default!;
 
 
-        public decimal AreaSqm { get; set; }
+            public decimal AreaSqm { get; set; }
 
-        public int? Bedrooms { get; set; }
+            public int? Bedrooms { get; set; }
 
-        public int? Bathrooms { get; set; }
+            public int? Bathrooms { get; set; }
 
-        public int? YearBuilt { get; set; }
+            public int? YearBuilt { get; set; }
 
-        public LegalStatus LegalStatus { get; set; }
+            public LegalStatus LegalStatus { get; set; }
 
-        public DateTimeOffset CreatedAt { get; set; }
+            public DateTimeOffset CreatedAt { get; set; }
 
-        public DateTimeOffset UpdatedAt { get; set; }
+            public DateTimeOffset UpdatedAt { get; set; }
 
 
         //relations

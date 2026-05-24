@@ -9,7 +9,8 @@ public class PropertyConfiguration : IEntityTypeConfiguration<Property>
     public void Configure(EntityTypeBuilder<Property> builder)
     {
 
-        //builder.Property(e => e.Id).ValueGeneratedOnAdd();
+        builder.Property(e => e.Id)
+            .HasDefaultValueSql("NEWID()");
         builder.Property(e => e.AreaSqm).HasColumnType("decimal(12, 2)");
 
         builder.Property(e => e.CreatedAt).HasDefaultValueSql("(sysdatetimeoffset())");
