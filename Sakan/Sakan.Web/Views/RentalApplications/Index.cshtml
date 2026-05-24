@@ -1,0 +1,30 @@
+@model IEnumerable<Sakan.Application.DTO.RentalApplicationDto>
+@{
+    ViewData["Title"] = "My rental applications";
+}
+
+<h1>My rental applications</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Property</th>
+            <th>Period</th>
+            <th>Budget</th>
+            <th>Status</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.PropertyTitle</td>
+            <td>@item.RequestedFrom.ToString("d") – @item.RequestedTo.ToString("d")</td>
+            <td>@item.MonthlyBudget</td>
+            <td>@item.Status</td>
+            <td><a asp-action="Details" asp-route-id="@item.Id">Details</a></td>
+        </tr>
+    }
+    </tbody>
+</table>

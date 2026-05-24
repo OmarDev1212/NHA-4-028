@@ -1,0 +1,35 @@
+@model IEnumerable<Sakan.Application.DTO.ViewingAppointmentDto>
+@{
+    ViewData["Title"] = "Viewing appointments";
+    var asAgent = (bool)(ViewBag.AsAgent ?? false);
+}
+
+<h1>Viewing appointments</h1>
+<p>
+    <a asp-action="Index" asp-route-asAgent="false">My requests</a> |
+    <a asp-action="Index" asp-route-asAgent="true">As agent</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Property</th>
+            <th>Scheduled</th>
+            <th>Type</th>
+            <th>Status</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.PropertyTitle</td>
+            <td>@item.ScheduledAt.ToString("g")</td>
+            <td>@item.MeetingType</td>
+            <td>@item.Status</td>
+            <td><a asp-action="Details" asp-route-id="@item.Id">Details</a></td>
+        </tr>
+    }
+    </tbody>
+</table>

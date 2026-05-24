@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Sakan.Application/Sakan.Application.csproj" />
+  <Project Path="Sakan.Domain/Sakan.Domain.csproj" />
+  <Project Path="Sakan.Infrastructure/Sakan.Infrastructure.csproj" />
+  <Project Path="Sakan.Web/Sakan.Web.csproj" />
+</Solution>

@@ -1,0 +1,41 @@
+﻿@model string
+<td>
+    <a class="btn btn-primary" asp-action="Details" asp-route-id="@Model">
+        <i class="fas fa-eye"></i> Details
+    </a>
+</td>   
+<td>
+    <a class="btn btn-success" asp-action="Edit" asp-route-id="@Model">
+        <i class="fas fa-edit"></i> Edit
+    </a>
+</td>
+<td>
+    <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@Model">
+        <i class="fas fa-trash"></i> Delete
+    </a>
+</td>
+<td>
+
+    
+
+
+    <div class="modal fade" id="DeleteModal-@Model" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Item</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are You Sure to Delete this Item?
+                </div>
+                <div class="modal-footer">
+                    <form asp-action="ConfirmDelete"  asp-route-id="@Model" class="mt-4">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <input type="submit" value="Delete" class="btn btn-danger" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</td>

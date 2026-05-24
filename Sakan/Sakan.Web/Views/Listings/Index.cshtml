@@ -1,0 +1,60 @@
+@model IEnumerable<Sakan.Application.DTO.PropertyListingDto>
+@using Sakan.Domain.Enums
+@{
+    ViewData["Title"] = "Browse Listings";
+}
+
+<h1>Browse listings</h1>
+
+<form method="get" class="row g-3 mb-4">
+    <div class="col-md-2">
+        <label class="form-label">Type</label>
+        <select name="listingType" class="form-select" asp-items="ViewBag.ListingType">
+            <option value="">Any</option>
+        </select>
+    </div>
+    <div class="col-md-2">
+        <label class="form-label">City</label>
+        <input name="city" class="form-control" value="@ViewBag.City" />
+    </div>
+    <div class="col-md-2">
+        <label class="form-label">Min price</label>
+        <input name="minPrice" type="number" step="0.01" class="form-control" value="@ViewBag.MinPrice" />
+    </div>
+    <div class="col-md-2">
+        <label class="form-label">Max price</label>
+        <input name="maxPrice" type="number" step="0.01" class="form-control" value="@ViewBag.MaxPrice" />
+    </div>
+    <div class="col-md-2 d-flex align-items-end">
+        <button type="submit" class="btn btn-primary w-100">Search</button>
+    </div>
+</form>
+
+@if (User.Identity?.IsAuthenticated == true)
+{
+    <p>
+        <a asp-action="MyListings" class="btn btn-outline-secondary">My listings</a>
+        <a asp-action="Create" class="btn btn-outline-primary">Create listing</a>
+    </p>
+}
+
+<div class="row">
+@foreach (var item in Model)
+{
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            @if (!string.IsNullOrEmpty(item.PrimaryPhotoUrl))
+            {
+                <img src="~/Uploads/Properties/@item.PrimaryPhotoUrl" class="card-img-top" alt="@item.PropertyTitle" style="height:160px;object-fit:cover;" />
+            }
+            <div class="card-body">
+                <h5 class="card-title">@item.PropertyTitle</h5>
+                <p class="card-text">@item.City, @item.Country · @item.ListingType</p>
+                <p class="card-text"><strong>@item.Price @item.Currency</strong> / month or total</p>
+                <p class="text-muted small">@item.AvailableFrom.ToString("d") – @(item.AvailableTo?.ToString("d") ?? "open")</p>
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-primary">View</a>
+            </div>
+        </div>
+    </div>
+}
+</div>

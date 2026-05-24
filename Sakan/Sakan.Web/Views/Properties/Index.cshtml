@@ -1,0 +1,48 @@
+@model IEnumerable<Sakan.Application.DTO.PropertyDto>
+
+@{
+    ViewData["Title"] = "Properties";
+}
+
+<h1>Properties</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Type</th>
+            <th>City</th>
+            <th>Area (m²)</th>
+            <th>Bedrooms</th>
+            <th>Bathrooms</th>
+            <th>Legal Status</th>
+            <th>Owner</th>
+            <th>Details </th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Title</td>
+                <td>@item.PropertyType</td>
+                <td>@item.City</td>
+                <td>@item.AreaSqm</td>
+                <td>@item.Bedrooms</td>
+                <td>@item.Bathrooms</td>
+                <td>@item.LegalStatus</td>
+                <td>@item.CurrentOwnerEmail</td>
+                <td>
+                    <partial name="_Buttons" model=@item.Id.ToString()></partial>
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>

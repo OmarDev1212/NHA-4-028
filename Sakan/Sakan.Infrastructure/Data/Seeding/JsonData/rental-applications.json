@@ -1,0 +1,15 @@
+[
+  {
+    "id": "aaaaaaaa-9999-9999-9999-999999999901",
+    "requestedFrom": "2025-06-01",
+    "requestedTo": "2026-05-31",
+    "monthlyBudget": 9000.00,
+    "message": "I am interested in renting this apartment starting June 1st.",
+    "status": 1,
+    "reviewedAt": null,
+    "contractDocumentId": "55555555-5555-5555-5555-555555555503",
+    "listingId": "22222222-2222-2222-2222-222222222201",
+    "applicantId": "aaaaaaaa-bbbb-bbbb-bbbb-bbbbbbbbbbb3",
+    "isDeleted": false
+  }
+]

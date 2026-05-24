@@ -1,0 +1,24 @@
+@model Sakan.Application.DTO.PropertyListingDto
+@{
+    ViewData["Title"] = Model.PropertyTitle;
+}
+
+<h1>@Model.PropertyTitle</h1>
+<p>@Model.City, @Model.Country</p>
+<p><strong>@Model.ListingType</strong> · @Model.Status</p>
+<p class="lead">@Model.Price @Model.Currency</p>
+<p>Available: @Model.AvailableFrom.ToString("d") – @(Model.AvailableTo?.ToString("d") ?? "—")</p>
+<p>@Model.AreaSqm m² · @Model.Bedrooms bed · @Model.Bathrooms bath · Views: @Model.ViewCount</p>
+
+@if (User.Identity?.IsAuthenticated == true)
+{
+    <div class="mt-3">
+        <a asp-controller="ViewingAppointments" asp-action="Create" asp-route-listingId="@Model.Id" class="btn btn-primary">Request viewing</a>
+        @if (Model.ListingType == nameof(Sakan.Domain.Enums.ListingType.ForRent))
+        {
+            <a asp-controller="RentalApplications" asp-action="Create" asp-route-listingId="@Model.Id" class="btn btn-success">Apply to rent</a>
+        }
+    </div>
+}
+
+<a asp-action="Index" class="btn btn-link mt-3">Back to listings</a>

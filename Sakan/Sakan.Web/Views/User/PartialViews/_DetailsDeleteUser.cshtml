@@ -1,0 +1,30 @@
+﻿@model UserViewModel
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<div class="row">
+    <div class="form-group col-12">
+        <label class="col-form-label" asp-for="FirstName"></label>
+        <input asp-for="FirstName" class="form-control" readonly />
+    </div>
+
+    <div class="form-group col-12">
+        <label class="col-form-label" asp-for="LastName"></label>
+        <input asp-for="LastName" class="form-control" readonly />
+    </div>
+
+
+    <div class="form-group col-12">
+        <label class="col-form-label" asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" readonly />
+    </div>
+    <div class="form-group col-12">
+        <label class="col-form-label" asp-for="PhoneNumber"></label>
+        <input asp-for="PhoneNumber" class="form-control" readonly />
+    </div>
+    <div class="form-group col-12">
+        <label class="col-form-label" asp-for="Roles"></label>
+        <input asp-for="Roles" class="form-control" value="@string.Join(", ", Model.Roles ?? new List<string>())" readonly />
+    
+    </div>
+</div>

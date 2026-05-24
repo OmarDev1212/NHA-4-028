@@ -1,0 +1,19 @@
+@model Sakan.Application.DTO.ConfirmViewingAppointmentDto
+@{
+    ViewData["Title"] = "Confirm viewing";
+    var id = ViewContext.RouteData.Values["id"];
+}
+
+<h1>Confirm viewing</h1>
+<form asp-action="Confirm" asp-route-id="@id" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="mb-3">
+        <label class="form-label">Agent</label>
+        <select asp-for="AgentId" class="form-select" asp-items="ViewBag.AgentId"></select>
+    </div>
+    <div class="mb-3">
+        <label asp-for="VirtualMeetingUrl" class="form-label"></label>
+        <input asp-for="VirtualMeetingUrl" class="form-control" placeholder="Leave empty to auto-generate" />
+    </div>
+    <button type="submit" class="btn btn-primary">Confirm</button>
+</form>

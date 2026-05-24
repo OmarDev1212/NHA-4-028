@@ -1,0 +1,65 @@
+[
+  {
+    "id": "11111111-1111-1111-1111-111111111101",
+    "title": "Modern 2BR Apartment in Nasr City",
+    "propertyType": 1,
+    "address": {
+      "street": "15 Abbas El Akkad Street",
+      "city": "Cairo",
+      "state": "Cairo",
+      "country": "Egypt",
+      "postalCode": "11371"
+    },
+    "areaSqm": 95.50,
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "yearBuilt": 2018,
+    "legalStatus": 1,
+    "createdAt": "2025-01-15T08:00:00+00:00",
+    "updatedAt": "2025-01-15T08:00:00+00:00",
+    "currentOwnerId": "aaaaaaaa-bbbb-bbbb-bbbb-bbbbbbbbbbb1",
+    "isDeleted": false
+  },
+  {
+    "id": "11111111-1111-1111-1111-111111111102",
+    "title": "Spacious Villa with Garden in New Cairo",
+    "propertyType": 3,
+    "address": {
+      "street": "42 South Academy Road",
+      "city": "New Cairo",
+      "state": "Cairo",
+      "country": "Egypt",
+      "postalCode": "11835"
+    },
+    "areaSqm": 320.00,
+    "bedrooms": 4,
+    "bathrooms": 3,
+    "yearBuilt": 2020,
+    "legalStatus": 1,
+    "createdAt": "2025-02-01T10:00:00+00:00",
+    "updatedAt": "2025-02-01T10:00:00+00:00",
+    "currentOwnerId": "aaaaaaaa-bbbb-bbbb-bbbb-bbbbbbbbbbb1",
+    "isDeleted": false
+  },
+  {
+    "id": "11111111-1111-1111-1111-111111111103",
+    "title": "Commercial Office Space in Maadi",
+    "propertyType": 4,
+    "address": {
+      "street": "7 Road 9",
+      "city": "Maadi",
+      "state": "Cairo",
+      "country": "Egypt",
+      "postalCode": "11431"
+    },
+    "areaSqm": 180.00,
+    "bedrooms": null,
+    "bathrooms": 2,
+    "yearBuilt": 2015,
+    "legalStatus": 3,
+    "createdAt": "2025-03-10T12:00:00+00:00",
+    "updatedAt": "2025-03-10T12:00:00+00:00",
+    "currentOwnerId": "aaaaaaaa-bbbb-bbbb-bbbb-bbbbbbbbbbb4",
+    "isDeleted": false
+  }
+]

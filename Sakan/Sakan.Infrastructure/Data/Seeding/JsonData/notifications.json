@@ -1,0 +1,24 @@
+[
+  {
+    "id": "bbbbbbbb-cccc-cccc-cccc-cccccccccc01",
+    "channel": "InApp",
+    "title": "Viewing confirmed",
+    "body": "Your property viewing has been confirmed for tomorrow at 10:00 AM.",
+    "isRead": false,
+    "createdAt": "2025-05-01T09:00:00+00:00",
+    "relatedEntityId": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa01",
+    "relatedEntityType": "ViewingAppoinment",
+    "recipientId": "aaaaaaaa-bbbb-bbbb-bbbb-bbbbbbbbbbb3"
+  },
+  {
+    "id": "bbbbbbbb-cccc-cccc-cccc-cccccccccc02",
+    "channel": "InApp",
+    "title": "New rental application",
+    "body": "You have received a new rental application for your listing.",
+    "isRead": false,
+    "createdAt": "2025-05-02T14:30:00+00:00",
+    "relatedEntityId": "aaaaaaaa-9999-9999-9999-999999999901",
+    "relatedEntityType": "RentalApplication",
+    "recipientId": "aaaaaaaa-bbbb-bbbb-bbbb-bbbbbbbbbbb1"
+  }
+]

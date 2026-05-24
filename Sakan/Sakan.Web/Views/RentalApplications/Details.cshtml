@@ -1,0 +1,19 @@
+@model Sakan.Application.DTO.RentalApplicationDto
+@{
+    ViewData["Title"] = "Rental application";
+}
+
+<h1>@Model.PropertyTitle</h1>
+<p><strong>Status:</strong> @Model.Status</p>
+<p><strong>Period:</strong> @Model.RequestedFrom.ToString("d") – @Model.RequestedTo.ToString("d")</p>
+<p><strong>Monthly budget:</strong> @Model.MonthlyBudget</p>
+@if (!string.IsNullOrEmpty(Model.Message))
+{
+    <p><strong>Message:</strong> @Model.Message</p>
+}
+@if (Model.ContractDocumentId.HasValue)
+{
+    <p class="text-success">Contract document created.</p>
+}
+
+<a asp-action="MyApplications" class="btn btn-link">Back</a>

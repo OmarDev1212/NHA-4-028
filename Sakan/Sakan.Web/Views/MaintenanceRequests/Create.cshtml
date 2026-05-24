@@ -1,0 +1,30 @@
+@model Sakan.Application.DTO.CreateMaintenanceRequestDto
+@{
+    ViewData["Title"] = "New maintenance request";
+}
+
+<h1>New maintenance request</h1>
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="mb-3">
+        <label class="form-label">Property</label>
+        <select asp-for="PropertyId" class="form-select" asp-items="ViewBag.PropertyId"></select>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Category</label>
+        <select asp-for="Category" class="form-select" asp-items="Html.GetEnumSelectList<Sakan.Domain.Enums.MaintenanceCategory>()"></select>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Title" class="form-label"></label>
+        <input asp-for="Title" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Description" class="form-label"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Priority" class="form-label"></label>
+        <select asp-for="Priority" class="form-select" asp-items="Html.GetEnumSelectList<Sakan.Domain.Enums.Priority>()"></select>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

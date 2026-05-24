@@ -1,0 +1,19 @@
+@model Sakan.Application.DTO.AssignMaintenanceRequestDto
+@{
+    ViewData["Title"] = "Assign contractor";
+    var id = ViewContext.RouteData.Values["id"];
+}
+
+<h1>Assign contractor</h1>
+<form asp-action="Assign" asp-route-id="@id" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="mb-3">
+        <label class="form-label">Contractor</label>
+        <select asp-for="AssignedToId" class="form-select" asp-items="ViewBag.AssignedToId"></select>
+    </div>
+    <div class="mb-3">
+        <label asp-for="EstimatedCostUSD" class="form-label"></label>
+        <input asp-for="EstimatedCostUSD" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Assign</button>
+</form>
